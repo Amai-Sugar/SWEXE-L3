@@ -1,3 +1,4 @@
+<h1>新しくつぶやく</h1>
 <% if @tweet.errors.present? %>
   <h3>エラーがあります。</h3>
     <h4><ul>
@@ -8,6 +9,10 @@
     </ul>
     </h4>
 <% end %>
-<h1>新しくつぶやく</h1>
 
-<%= render partial: 'form', locals: { tweet: @tweet } %>
+<%= form_with model: @tweet, local: true do |f| %>
+  <%= f.label :message, '呟き' %>
+  <%= f.text_field :message %>
+  <%= f.submit '更新' %>
+<% end %>
+<%= link_to 'Topへ', '/' %>

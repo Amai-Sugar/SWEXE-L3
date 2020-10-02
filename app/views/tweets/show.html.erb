@@ -1,0 +1,12 @@
+<p>
+    <strong>ツイート：</strong>
+    <%= @tweet.message %>
+</p>
+
+<p>
+    <strong>経過時間：</strong>
+    <%= (Time.now - @tweet.tdate).to_i / 60  %>
+    <%= "分" %>
+</p>
+
+<%= link_to 'Topへ', '/' %>

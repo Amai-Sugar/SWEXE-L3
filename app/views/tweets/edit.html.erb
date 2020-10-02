@@ -1,5 +1,2 @@
-<%= form_for @tweet , url: {action: :update} do |f| %>
-  <%= f.label :message, '呟き' %>
-  <%= f.text_field :message %>
-  <%= f.submit '更新' %>
-<% end %>
+<h1>呟きの編集</h1>
+<%= render partial: 'form', locals: { tweet: @tweet } %>

@@ -8,12 +8,6 @@
     </ul>
     </h4>
 <% end %>
+<h1>新しくつぶやく</h1>
 
-
-<%= form_for @tweet , url: {action: :create} do |f| %>
- <%= f.label :message, '呟き' %>
- <%= f.text_field :message %>
- <%= f.submit '登録' %>
-<% end %>
-
-<%= link_to 'Topへ', '/' %>
+<%= render partial: 'form', locals: { tweet: @tweet } %>

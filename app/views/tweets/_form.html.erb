@@ -1,0 +1,6 @@
+<%= form_with model: tweet, local: true do |f| %>
+  <%= f.label :message, '呟き' %>
+  <%= f.text_field :message %>
+  <%= f.submit '更新' %>
+<% end %>
+<%= link_to 'Topへ', '/' %>

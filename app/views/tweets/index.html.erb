@@ -1,24 +1,38 @@
-<% if flash[:notice] %>
-  <strong>
-  <div class="flash">
-   <%= flash[:notice] %>
-  </div>
-  </strong>
-<% end %>
-
-<% @tweets.each do |tweet| %>
- 　<p>
- 　 <strong>ツイート：</strong>
- 　 <%= tweet.message %>
- 　 <p>
- 　     <strong>経過時間：</strong>
-    <%= (Time.now - tweet.tdate).to_i / 60  %>
-    <%= "分" %>
-    </p>
- 　 <%= link_to '表示', "/tweets/#{tweet.id}" %>
- 　 <%= link_to '編集', "/tweets/#{tweet.id}/edit" %>
- 　 <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
- 　</p>
-<% end %>
-
-<p><%= link_to '新規追加', '/tweets/new' %></p>
+<body>
+ <header id="header">
+  
+ </header>
+    <% if flash[:notice] %>
+      <strong>
+      <div class="flash">
+       <%= flash[:notice] %>
+      </div>
+      </strong>
+    <% end %>
+    
+    
+    <main id="main">
+     <strong>Amai Sugar</strong>
+     <p id="ash">ama_sugar</p>
+     <p>卍大学、卍学科、３歳。得意なことは昼寝。基本的にはポンポンペイン。勉強好きすぎて辞めれないくらいの中毒</p>
+     <p id="ash">修羅の国飯塚市</p>
+     <p id="ash">794年に登録</p>
+     <%= link_to 'ツイート', new_tweet_path %>
+     <%= link_to 'DM' %>
+    </main>
+    
+      <% @tweets.each do |tweet| %>
+      <div id="side">
+       　 <strong>ツイート：</strong>
+       　 <%= tweet.message %><br>
+       　     <strong>経過時間：</strong>
+          <%= (Time.now - tweet.tdate).to_i / 60  %>
+          <%= "分" %>
+          </p>
+       　 <%= link_to '表示', tweet_path(tweet) %>
+       　 <%= link_to '編集', edit_tweet_path(tweet) %>
+       　 <%= link_to '削除', tweet, method: :delete, data: { confirm: "呟きを削除します。よろしいですか？"} %>
+       　</p>
+      </div>
+      <% end %>
+</body>
